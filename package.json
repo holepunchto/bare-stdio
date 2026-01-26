@@ -4,7 +4,8 @@
   "description": "Stdio for Bare",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write .",
+    "lint": "prettier --check . && lunte"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,10 @@
     "bare-fs": "^4.5.2",
     "bare-stream": "^2.7.0",
     "bare-tty": "^5.0.3"
+  },
+  "devDependencies": {
+    "lunte": "^1.4.0",
+    "prettier": "^3.8.1",
+    "prettier-config-holepunch": "^2.0.0"
   }
 }
