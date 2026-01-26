@@ -1,0 +1,24 @@
+{
+  "name": "bare-stdio",
+  "version": "1.0.0",
+  "description": "Stdio for Bare",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/bare-stdio.git"
+  },
+  "author": "Holepunch",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/holepunchto/bare-stdio/issues"
+  },
+  "homepage": "https://github.com/holepunchto/bare-stdio#readme",
+  "dependencies": {
+    "bare-fs": "^4.5.2",
+    "bare-stream": "^2.7.0",
+    "bare-tty": "^5.0.3"
+  }
+}
