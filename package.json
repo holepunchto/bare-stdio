@@ -24,6 +24,7 @@
     "bare-tty": "^5.0.3"
   },
   "devDependencies": {
+    "bare-os": "^3.6.2",
     "bare-path": "^3.0.0",
     "bare-subprocess": "^3.1.4",
     "brittle": "^3.19.1",

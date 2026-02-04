@@ -1,14 +1,16 @@
 const test = require('brittle')
 const { join } = require('bare-path')
 const { spawn } = require('bare-subprocess')
+const os = require('bare-os')
 const pty = require('tt-native')
 
+const execPath = os.execPath()
 const fixture = join(__dirname, 'fixtures', 'print', 'index.js')
 
 test('should work with ignore', async (t) => {
   t.plan(1)
 
-  const child = spawn('bare', [fixture], {
+  const child = spawn(execPath, [fixture], {
     stdio: ['ignore', 'ignore', 'ignore']
   })
 
@@ -21,7 +23,7 @@ test('should work with ignore', async (t) => {
 test('should work on a tty', async (t) => {
   t.plan(2)
 
-  const child = pty.spawn('bare', [fixture], { cols: 80, rows: 24 })
+  const child = pty.spawn(execPath, [fixture], { cols: 80, rows: 24 })
   let output = ''
   child.on('data', (data) => {
     output += data
@@ -37,7 +39,7 @@ test('should work on a tty', async (t) => {
 test('should work with pipe', async (t) => {
   t.plan(3)
 
-  const child = spawn('bare', [fixture], {
+  const child = spawn(execPath, [fixture], {
     stdio: ['pipe', 'pipe', 'pipe']
   })
 
@@ -59,7 +61,7 @@ test('should work with pipe', async (t) => {
 test('should work with inherit', async (t) => {
   t.plan(1)
 
-  const child = spawn('bare', [fixture], {
+  const child = spawn(execPath, [fixture], {
     stdio: ['inherit', 'inherit', 'inherit']
   })
 
