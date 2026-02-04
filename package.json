@@ -4,6 +4,7 @@
   "description": "Stdio for Bare",
   "main": "index.js",
   "scripts": {
+    "test": "bare test/basic.js",
     "format": "prettier --write .",
     "lint": "prettier --check . && lunte"
   },
@@ -23,8 +24,12 @@
     "bare-tty": "^5.0.3"
   },
   "devDependencies": {
+    "bare-path": "^3.0.0",
+    "bare-subprocess": "^3.1.4",
+    "brittle": "^3.19.1",
     "lunte": "^1.4.0",
     "prettier": "^3.8.1",
-    "prettier-config-holepunch": "^2.0.0"
+    "prettier-config-holepunch": "^2.0.0",
+    "tt-native": "^1.1.1"
   }
 }
