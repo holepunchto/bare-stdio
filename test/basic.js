@@ -21,7 +21,7 @@ test('should work with ignore', async (t) => {
 })
 
 // Skipped on Windows due to pty limitations
-test('should work on a tty', async (t) => {
+test('should work on a tty', { skip: os.platform() === 'win32' }, async (t) => {
   t.plan(2)
 
   const child = pty.spawn(execPath, [fixture], { cols: 80, rows: 24 })
@@ -35,7 +35,7 @@ test('should work on a tty', async (t) => {
   })
   t.is(exitCode, 0, 'process should exit successfully')
   t.is(output, 'stdoutstderr', 'process should print to stdout and stderr')
-}, { skip: os.platform() === 'win32' })
+})
 
 test('should work with pipe', async (t) => {
   t.plan(3)
