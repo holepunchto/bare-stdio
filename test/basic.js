@@ -20,6 +20,7 @@ test('should work with ignore', async (t) => {
   t.is(exitCode, 0, 'process should exit successfully')
 })
 
+// Skipped on Windows due to pty limitations
 test('should work on a tty', async (t) => {
   t.plan(2)
 
@@ -34,7 +35,7 @@ test('should work on a tty', async (t) => {
   })
   t.is(exitCode, 0, 'process should exit successfully')
   t.is(output, 'stdoutstderr', 'process should print to stdout and stderr')
-})
+}, { skip: os.platform() === 'win32' })
 
 test('should work with pipe', async (t) => {
   t.plan(3)
