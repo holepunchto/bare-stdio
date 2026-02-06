@@ -1,5 +1,5 @@
 const tty = require('bare-tty')
-const { Writable, Readable } = require('bare-stream')
+const { Writable } = require('streamx')
 const fs = require('bare-fs')
 
 module.exports = new (class Stdio {
