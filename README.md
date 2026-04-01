@@ -1,11 +1,9 @@
 # bare-stdio
 
-Standard input/output streams for [Bare](https://github.com/holepunchto/bare).
+Standard input/output streams for Bare.
 
-## Install
-
-```sh
-npm install bare-stdio
+```
+npm i bare-stdio
 ```
 
 ## Usage
