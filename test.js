@@ -4,6 +4,8 @@ const { spawn } = require('bare-subprocess')
 const os = require('bare-os')
 const pty = require('tt-native')
 
+const isWindows = Bare.platform === 'win32'
+
 const execPath = os.execPath()
 
 const fixtures = path.join(__dirname, 'test', 'fixtures')
@@ -20,7 +22,7 @@ test('should work with ignore', async (t) => {
   })
 })
 
-test('should work with pipe', async (t) => {
+test('should work with pipe', { skip: isWindows }, async (t) => {
   t.plan(3)
 
   const child = spawn(execPath, [path.join(fixtures, 'print')], {
@@ -52,7 +54,7 @@ test('should work with inherit', async (t) => {
   })
 })
 
-test('should work on a tty', { skip: os.platform() === 'win32' }, async (t) => {
+test('should work on a tty', { skip: isWindows }, async (t) => {
   t.plan(2)
 
   const child = pty.spawn(execPath, [path.join(fixtures, 'print')], { cols: 80, rows: 24 })
