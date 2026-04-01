@@ -27,27 +27,15 @@ stdio.in.on('data', (data) => {
 
 #### `stdio.in`
 
-A readable stream for standard input (`fd 0`). Returns a TTY stream if stdin is a terminal, otherwise returns a basic file descriptor read stream.
+A readable stream for standard input (`fd 0`). Returns a `bare-tty` `ReadStream` if stdin is a terminal, a `bare-pipe` `Pipe` if it's a pipe, otherwise a `bare-fs` `ReadStream`.
 
 #### `stdio.out`
 
-A writable stream for standard output (`fd 1`). Returns a TTY stream if stdout is a terminal, otherwise returns a basic file descriptor write stream.
+A writable stream for standard output (`fd 1`). Returns a `bare-tty` `WriteStream` if stdout is a terminal, a `bare-pipe` `Pipe` if it's a pipe, otherwise a `bare-fs` `WriteStream`.
 
 #### `stdio.err`
 
-A writable stream for standard error (`fd 2`). Returns a TTY stream if stderr is a terminal, otherwise returns a basic file descriptor write stream.
-
-#### `stdio.inAttached`
-
-Boolean indicating whether the input stream has been initialized.
-
-#### `stdio.size()`
-
-Returns the terminal window size as `{ width, height }`. Defaults to `{ width: 80, height: 80 }` if the output is not a TTY.
-
-#### `stdio.raw(rawMode)`
-
-Sets the terminal raw mode. When `rawMode` is `true`, input is passed through without processing (no line buffering, no echoing, etc.). Only works when stdin is a TTY.
+A writable stream for standard error (`fd 2`). Returns a `bare-tty` `WriteStream` if stderr is a terminal, a `bare-pipe` `Pipe` if it's a pipe, otherwise a `bare-fs` `WriteStream`.
 
 ## License
 
