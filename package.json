@@ -1,6 +1,6 @@
 {
   "name": "bare-stdio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Standard input/output streams for Bare",
   "exports": {
     ".": {
